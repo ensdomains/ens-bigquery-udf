@@ -37,13 +37,14 @@ Once done, upload files under dist/ to https://console.cloud.google.com/storage/
 ## Query example
 
 ```
+CREATE TEMP FUNCTION ens_normalize(arg1 STRING)
 RETURNS STRING
 LANGUAGE js
   OPTIONS (
     library=['gs://jsassets/ens-normalize.js'])
 AS r"""
   try{
-    return ens_normalize_1_6_3(arg1)
+    return ens_normalize(arg1)
   }catch(e){
     return null;
   }
@@ -101,7 +102,7 @@ WITH Example AS
   SELECT  null  UNION ALL
   SELECT  '' UNION ALL
   SELECT  '–brokensea' UNION ALL --* both ok but  different *--
-  SELECT  '₿00₿5'  UNION ALL --* legacy error, new ok *--
+  SELECT  '۸۸۷۵۴۲'  UNION ALL --* legacy error, new ok *--
   SELECT  '⁕⁕⁕⁕⁕'  UNION ALL --* legacy error, new ok *--
   SELECT '🚀‍‍‍‍‍‍‍‍‍‍🚀‍‍‍‍‍‍‍‍‍‍🚀‍‍‍‍‍‍‍‍‍‍') --* legacy ok , new error *--
 SELECT label,
@@ -109,9 +110,9 @@ SELECT label,
   LEFT(NAME_TO_LABELHASH(eth_ens_namehash_2_0_8(label)), 5) as old_2_0_8_hash,
   eth_ens_namehash_2_0_15(label) as old_2_0_15,
   LEFT(NAME_TO_LABELHASH(eth_ens_namehash_2_0_15(label)), 5) as old_2_0_15_hash,
-  ens_normalize_1_6_3(label) as new_1_6_3,
-  LEFT(NAME_TO_LABELHASH(ens_normalize_1_6_3(label)), 5) as new_1_6_3_hash,
-  NAME_TO_LABELHASH(eth_ens_namehash_2_0_15(label)) != NAME_TO_LABELHASH(ens_normalize_1_6_3(label)) AND eth_ens_namehash_2_0_15(label) IS NOT NULL as refund
+  ens_normalize(label) as new_1_6_4,
+  LEFT(NAME_TO_LABELHASH(ens_normalize(label)), 5) as new_1_6_4_hash,
+  NAME_TO_LABELHASH(eth_ens_namehash_2_0_15(label)) != NAME_TO_LABELHASH(ens_normalize(label)) AND eth_ens_namehash_2_0_15(label) IS NOT NULL as refund
 
 FROM Example
 ```
