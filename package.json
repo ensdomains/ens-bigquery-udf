@@ -1,0 +1,37 @@
+{
+  "name": "ens-bigquery-udf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Makoto Inoue",
+  "license": "MIT",
+  "dependencies": {
+    "@adraffy/ens-normalize": "^1.6.4",
+    "@babel/core": "^7.19.1",
+    "@ensdomains/eth-ens-namehash": "^2.0.15",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-multi-entry": "^4.1.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "eth-ens-namehash": "^2.0.8",
+    "ethers": "^5.7.1",
+    "rollup": "^2.79.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^9.1.2",
+    "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-polyfill-node": "^0.10.2",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "scripts": {
+    "build": "yarn build:old1 && yarn build:old2 && yarn build:new",
+    "build:old1": "rollup -c rollup.config.eth_ens_namehash_2_0_8",
+    "build:old2": "rollup -c rollup.config.eth_ens_namehash_2_0_15",
+    "build:new": "rollup -c rollup.config.ens_normalize.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^14.1.0",
+    "rollup-plugin-external-globals": "^0.6.1"
+  }
+}

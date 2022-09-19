@@ -1,0 +1,1 @@
+export const namehash_2_0_15 = require('@ensdomains/eth-ens-namehash')
