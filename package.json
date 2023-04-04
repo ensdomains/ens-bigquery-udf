@@ -5,7 +5,7 @@
   "author": "Makoto Inoue",
   "license": "MIT",
   "dependencies": {
-    "@adraffy/ens-normalize": "^1.6.4",
+    "@adraffy/ens-normalize": "1.9.0",
     "@babel/core": "^7.19.1",
     "@ensdomains/eth-ens-namehash": "^2.0.15",
     "@rollup/plugin-babel": "^5.3.1",

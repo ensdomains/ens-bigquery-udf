@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adraffy/ens-normalize@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.6.4.tgz#0bdb1a61eb2007c21a6c4e15c87ef58d98dd7b41"
-  integrity sha512-u8VNYA07b5Akm1huv2kOZUzlEWIq6SwuLODToEi7j5iSXqIbEmyMuG7XrVw32/XkEcxMiJMq1yMuO1+fFC8upA==
+"@adraffy/ens-normalize@1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.9.0.tgz#223572538f6bea336750039bb43a4016dcc8182d"
+  integrity sha512-iowxq3U30sghZotgl4s/oJRci6WPBfNO5YYgk2cIOMCHr3LeGPcsZjCEr+33Q4N+oV3OABDAtA+pyvWjbvBifQ==
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
